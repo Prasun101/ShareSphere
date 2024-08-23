@@ -1,0 +1,102 @@
+
+<div class="container">
+    <!-- Filter and Refine Horizontal Bar -->
+    <div class="cardfilter">
+      <div class="col-md-12">
+          <div class="card_filter mb-3 p-3" [ngStyle]="{ 'background-color': '#f8f9fa', 'border-radius': '10px', 'box-shadow': '0px 4px 8px rgba(0, 0, 0, 0.1)' }">
+              <div class="card-body d-flex flex-wrap justify-content-between align-items-center">
+                  <div class="title p-3">
+                      <h5 class="mb-2" [ngStyle]="{ 'color': '#007bff', 'font-weight': 'bold', 'text-transform': 'uppercase', 'letter-spacing': '1px' }">Filter</h5>
+                  </div>
+                  <div class="d-flex flex-wrap justify-content-between align-items-center mt-3">
+                      <!-- Category Filters -->
+                      <div>
+                          <ul class="list-inline mb-0" [ngStyle]="{ 'padding': '0', 'margin': '0', 'list-style-type': 'none' }">
+                              <li class="list-inline-item" *ngFor="let category of categories" (click)="selectCategory(category)">
+                                  <button class="filter" [ngStyle]="getButtonStyle(category.name)">
+                                      {{ category.name }}
+                                  </button>
+                              </li>
+                          </ul>
+                      </div>
+                      <!-- Price Filters -->
+                      <div class="d-flex align-items-center">
+                          <button class="filter mx-2" (click)="filterByPriceRange('cheap')" [ngStyle]="getButtonStyle('cheap')">Cheap</button>
+                          <button class="filter mx-2" (click)="filterByPriceRange('medium')" [ngStyle]="getButtonStyle('medium')">Medium</button>
+                          <button class="filter mx-2" (click)="filterByPriceRange('expensive')" [ngStyle]="getButtonStyle('expensive')">Expensive</button>
+                      </div>
+                      <!-- Other Filters -->
+                      <div class="d-flex align-items-center">
+                          <button class="filter mx-2" [ngStyle]="getButtonStyle('Best match')">Best match</button>
+                          <button class="filter mx-2" [ngStyle]="getButtonStyle('Best sellers')">Best sellers</button>
+                          <button class="filter mx-2" [ngStyle]="getButtonStyle('Newest')">Newest</button>
+                          <button class="filter mx-2" [ngStyle]="getButtonStyle('Best rated')">Best rated</button>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  
+
+    <div class="row">
+        <div *ngIf="filteredProducts.length === 0" class="col-md-12 text-center">
+            <h3>No items available</h3>
+        </div>
+
+        <div class="card mb-4">
+          <p-carousel 
+          [value]="products" 
+          [numVisible]="3" 
+          [numScroll]="3" 
+          [circular]="false" 
+          [responsiveOptions]="responsiveOptions">
+          <ng-template let-product pTemplate="item">
+              <div class="border-1 surface-border border-round m-2 p-3">
+                  <div class="mb-3">
+                      <div class="relative mx-auto">
+                          <img 
+                              [routerLink]="['/products', product.id]"
+                              [src]="product.image_path? 'http://127.0.0.1:5000/uploads/products/' + product.image_path: 'https://th.bing.com/th/id/R.3dbbe74998b7de9bfa2a828e673f84ff?rik=s03hD410dWx%2bHA&pid=ImgRaw&r=0'" 
+                              [alt]="product.title" 
+                              class="w-59 border-round"
+                                  />
+                          <p-tag 
+                              [value]="product.inventoryStatus" 
+                              [severity]="getSeverity(product.inventoryStatus)" 
+                              class="absolute"
+                              [ngStyle]="{ 'left.px': 5, 'top.px': 5 }" />
+                      </div>
+                      
+                  </div>
+                  <div class="mb-3 font-medium" [routerLink]="['/products', product.id]">
+                      {{ product.title }}
+                  </div>
+                  <div class="mb-3 font-small">
+                      {{ product.description }}
+                  </div>
+                  <div class="mb-3 font-medium">
+                      £{{ product.price }}
+                  </div>
+                  <div >
+                      <span class="d-flex justify-content-between align-items-center">
+                          <p-chip 
+                              [label]="product.user.username" 
+                              [image]="product.user.profile_picture?  product.user.profile_picture: 'https://th.bing.com/th/id/OIP.OYbzbbyzogwtriubL2pP0AHaHa?rs=1&pid=ImgDetMain'" 
+                              [alt]="product.user.username" 
+                              
+                              [ngStyle]="{ 'left.px': 5, 'top.px': 5 }" />
+                          <div class="heart">
+                              <p-button icon="fas fa-heart" severity="success" [outlined]="true" [style]="{ 'border-radius': '10px' }"(onClick)="saveProduct(product)"></p-button>
+                              
+                          </div>
+                      </span>
+                      
+                  </div>
+              </div>
+          </ng-template>
+      </p-carousel>
+        </div>
+    </div>
+</div>
+

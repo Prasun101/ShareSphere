@@ -1,0 +1,58 @@
+<div class="container mt-4">
+    <h5 class="title mb-3 text-primary">Notifications</h5>
+    <ul class="list-group">
+      <li *ngFor="let activity of activities" class="card mt-3 notification-item">
+        <div class="d-flex align-items-center">
+          <ng-container *ngIf="loggedInUser">
+            <div *ngIf="activity.user_id === loggedInUser.user_id; else otherUserTemplate">
+              <img
+                [src]="activity.profile_picture ? 'http://127.0.0.1:5000/uploads/profiles/' + activity.profile_picture : 'https://th.bing.com/th/id/OIP.OYbzbbyzogwtriubL2pP0AHaHa?rs=1&pid=ImgDetMain'"
+                alt="Profile Picture"
+                class="rounded-circle notification-image"
+              />
+              <div class="notification-content">
+                <ng-container [ngSwitch]="activity.activity_type">
+                  <div *ngSwitchCase="'product_added'">
+                    You added a new product <strong>{{ activity.activity_details.title }}</strong> in category
+                    <strong>{{ activity.activity_details.category }}</strong>.
+                  </div>
+                  <div *ngSwitchCase="'product_saved'">
+                    You saved the product <strong>{{ activity.activity_details.title }}</strong> posted by
+                    <strong>{{ activity.other_user_details?.username }}</strong>.
+                  </div>
+                  <div *ngSwitchCase="'product_deleted'">
+                    You deleted the product <strong>{{ activity.activity_details.title }}</strong>.
+                  </div>
+                  <div *ngSwitchCase="'product_updated'">
+                    You updated the product <strong>{{ activity.activity_details.title }}</strong> in category
+                    <strong>{{ activity.activity_details.category }}</strong>.
+                  </div>
+                  <div *ngSwitchCase="'profile_updated'">You updated your profile.</div>
+                </ng-container>
+              </div>
+            </div>
+            <ng-template #otherUserTemplate>
+              <img
+                [src]="activity.profile_picture ? 'http://127.0.0.1:5000/uploads/profiles/' + activity.profile_picture : 'https://th.bing.com/th/id/OIP.OYbzbbyzogwtriubL2pP0AHaHa?rs=1&pid=ImgDetMain'"
+                alt="Profile Picture"
+                class="rounded-circle notification-image"
+              />
+              <div class="notification-content">
+                <ng-container [ngSwitch]="activity.activity_type">
+                  <div *ngSwitchCase="'product_saved'">
+                    <strong>{{ activity.username }}</strong> saved your product <strong>{{ activity.activity_details.title }}</strong>
+                    in category <strong>{{ activity.activity_details.category }}</strong>.
+                  </div>
+                  <div *ngSwitchCase="'message_received'">
+                    <strong>{{ activity.other_user_details?.username }}</strong> sent you a message.
+                  </div>
+                </ng-container>
+              </div>
+            </ng-template>
+            <small class="text-muted ml-auto notification-timestamp">{{ activity.timestamp | date: 'medium' }}</small>
+          </ng-container>
+        </div>
+      </li>
+    </ul>
+  </div>
+  

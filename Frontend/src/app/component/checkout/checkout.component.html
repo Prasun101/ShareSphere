@@ -1,0 +1,81 @@
+<div class="container container-center">
+    <div class="row bootstrap snippets w-100">
+        <!-- Cart -->
+        <div class="col-lg-9 col-md-9 col-sm-12 mx-auto">
+            <div class="card">
+                <div class="card-header">
+                    <span class="title">SHOPPING CART</span>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered tbl-cart">
+                            <thead>
+                                <tr>
+                                    <th class="hidden-xs">Image</th>
+                                    <th>Product Name</th>
+                                    <th>Size</th>
+                                    <th>Color</th>
+                                    <th class="td-qty">Quantity</th>
+                                    <th>Unit Price</th>
+                                    <th>Sub Total</th>
+                                    <th>Remove</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let item of cartItems">
+                                    <td class="hidden-xs">
+                                        <a href="#">
+                                            <img [src]="'http://127.0.0.1:5000/uploads/products/' + item.product.image_path" alt="{{ item.product.title }}" title="{{ item.product.title }}" width="47" height="47">
+                                        </a>
+                                    </td>
+                                    <td><a href="#">{{ item.product.title }}</a></td>
+                                    <td>
+                                        <select name="" *ngIf="item.product.category.toLowerCase() === 'clothing'">
+                                            <option *ngFor="let size of getSizeOptions(item.product.category)" [value]="size">{{ size }}</option>
+                                        </select>
+                                    </td>
+                                    <td>-</td>
+                                    <td>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <button class="btn btn-outline-secondary" type="button" (click)="decreaseQuantity(item)"><i class="fa fa-minus"></i></button>
+                                            </div>
+                                            <input type="text" [(ngModel)]="item.quantity" class="form-control text-center" style="max-width: 60px;">
+                                            <div class="input-group-append">
+                                                <button class="btn btn-outline-secondary" type="button" (click)="increaseQuantity(item)"><i class="fa fa-plus"></i></button>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="price">{{ item.product.price | currency:'GBP' }}</td>
+                                    <td>{{ (item.product.price * item.quantity) | currency:'GBP'}}</td>
+                                    <td class="text-center">
+                                        <a href="#" class="remove_cart" (click)="removeItem(item.product._id); $event.preventDefault();">
+                                            <i class="fa fa-trash"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr *ngIf="cartItems.length > 0">
+                                    <td colspan="6" align="right">Delivery Charge</td>
+                                    <td class="total" colspan="2"><b>{{ deliveryCharge | currency:'GBP' }}</b></td>
+                                </tr>
+                                <tr *ngIf="cartItems.length > 0">
+                                    <td colspan="6" align="right">Total</td>
+                                    <td class="total" colspan="2"><b>{{ total | currency:'GBP' }}</b></td>
+                                </tr>
+                                <tr *ngIf="cartItems.length === 0">
+                                    <td colspan="8" class="text-center">No items selected</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="btn-group btns-cart">
+                        <button type="button" class="btn btn-primary" routerLink="/home/products"><i class="fa fa-arrow-circle-left"></i> Continue Shopping</button>
+                        <button type="button" class="btn btn-primary" (click)="updateCart()">Update Cart</button>
+                        <button type="button" class="btn btn-primary" (click)="createCheckoutSession()">Checkout <i class="fa fa-arrow-circle-right"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Cart -->
+    </div>
+</div>

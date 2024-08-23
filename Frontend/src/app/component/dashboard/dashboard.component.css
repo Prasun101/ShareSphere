@@ -1,0 +1,123 @@
+
+
+.display {
+    overflow-x: hidden; /* Disable horizontal scrolling */
+    overflow-y: auto; /* Enable vertical scrolling */
+    
+    margin-top: 80px;
+   
+    margin-left: 5rem; 
+
+    
+    background: linear-gradient(to top, rgb(169, 166, 207) 60%, black 100%);
+    background-repeat: no-repeat;
+
+   
+    background-size: cover;
+    background-position: center; /* Center the background */
+
+    height: 100vh; /* Adjust as needed */
+}
+/* Hide scrollbar for Webkit browsers */
+.display::-webkit-scrollbar {
+    width: 0px;
+    background: transparent; /* Optional: just to avoid being white */
+}
+
+/* Hide scrollbar for IE, Edge, and Firefox */
+.display {
+  margin-top: 20px;
+  margin-left: -8px;
+    
+}
+
+.no-arrow .dropdown-toggle::after {
+    display: none;
+}
+.main{
+    color:whire;
+    font-size: 30px;
+}
+
+.header{
+    font-size: 20px;
+    color:grey;
+}
+.topic{
+    font-size:18px;
+    color:grey;
+}
+.modal-header {
+    background-color: #007bff;
+    color: white;
+    justify-content: space-between;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+  }
+  .modal-footer {
+    background-color: #f1f1f1;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+  }
+  .modal-content {
+    border-radius: 15px;
+  }
+  .form-group label {
+    font-weight: bold;
+  }
+  .form-control, .form-control-file {
+    border-radius: 10px;
+  }
+  .btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+  }
+  .btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #004085;
+  }
+  .close {
+    color:black;
+    background: transparent;
+    border:none;
+
+    
+    cursor: pointer;
+  }
+  .close span {
+    font-size: 1.5rem;
+    color: white;
+  }
+  .header-button {
+    flex: 1;
+  }
+  .close:focus {
+    outline: none;
+    box-shadow: none;
+  }
+/* product-modal.component.css */
+.image-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border: 2px dashed #007bff;
+    border-radius: 10px;
+    height: 150px;
+    width: 100%; /* Ensures the preview box fits within the modal */
+    text-align: center;
+    color: #007bff;
+    position: relative;
+  }
+  
+  
+  img {
+    border-radius: 10px;
+    max-width: 100%; /* Ensures the image does not exceed the box width */
+    max-height: 100%; /* Ensures the image does not exceed the box height */
+    object-fit: cover;
+  } /* Override the common CSS */
+  
+  
+  
+  

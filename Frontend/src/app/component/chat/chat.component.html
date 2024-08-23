@@ -1,0 +1,106 @@
+<div class="display">
+  <div class="container-fluid">
+    <div class="row clearfix">
+      <div class="col-lg-12">
+        <div class="card chat-app">
+          <div id="plist" class="people-list">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fa fa-search"></i></span>
+              </div>
+              <input type="text" class="form-control" placeholder="Search..." [(ngModel)]="searchQuery">
+            </div>
+            <ul class="list-unstyled chat-list mt-2 mb-0">
+              <li *ngFor="let user of filteredUsers()" (click)="selectUser(user)" class="clearfix" [class.active]="user._id === recipientId">
+                <img [src]="user.profile_picture || 'https://bootdey.com/img/Content/avatar/avatar1.png'" alt="avatar">
+                <div class="about">
+                  <div class="name">{{ user.username }}</div>
+                  <div class="status"> <i class="fa fa-circle" [ngClass]="{'online': user, 'offline': !user}"></i> {{ user.status }} </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="chat" *ngIf="recipientId">
+            <div class="chat-header clearfix">
+              <div class="row">
+                <div class="col-lg-6">
+                  <a href="javascript:void(0);">
+                    <img [src]="selectedUser?.profile_picture || 'https://bootdey.com/img/Content/avatar/avatar1.png'" alt="avatar">
+                  </a>
+                  <div class="chat-about">
+                    <h6 class="m-b-0">{{ selectedUser?.username }}</h6>
+                    <small>Last seen: {{ lastSeen ? (lastSeen | date: 'MMM d, y, h:mm a') : 'N/A' }}</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="chat-history">
+              <ul class="m-b-1">
+                <li *ngFor="let message of messages" class="clearfix" 
+                  [ngClass]="{'message-sent': message.sender_id === loggedInUser?.user_id, 'message-received': message.sender_id !== loggedInUser?.user_id}">
+  
+                  <!-- Sent Message -->
+                  <div *ngIf="message.sender_id === loggedInUser?.user_id">
+                    <span class="message-data-time">{{ message.timestamp | date:'yyyy/MM/dd HH:mm' }}</span>
+                    <img [src]="loggedInUser?.profile_picture || 'https://bootdey.com/img/Content/avatar/avatar1.png'" alt="avatar">
+                    <div *ngIf="!message.message.title && !message.message.image; else productMessage">
+                      <div class="message my-message float-right">
+                        {{ message.message}}
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Received Message -->
+                  <div *ngIf="message.sender_id !== loggedInUser?.user_id">
+                    <div class="message-data">
+                      <img [src]="selectedUser?.profile_picture || 'https://bootdey.com/img/Content/avatar/avatar1.png'" alt="avatar">
+                      <span class="message-data-time">{{ message.timestamp | date:'yyyy/MM/dd HH:mm' }}</span>
+                    </div>
+                    <div *ngIf="!message.message.title && !message.message.image; else productMessage">
+                      <div class="message other-message">
+                        {{ message.message}}
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Product Message Template -->
+                  <ng-template #productMessage>
+                    <p-card [header]="message.message.title" [style]="{ cursor:'pointer',width: '200px', height: '300px' }" [routerLink]="['/products', message.message.product_id]">
+                      <ng-template pTemplate="header">
+                        <img class="picture" alt="Card" [src]="'http://127.0.0.1:5000/uploads/products/' + message.message.image" />
+                      </ng-template>
+                      <p>
+                        {{ message.message.description }}
+                      </p>
+                    </p-card>
+                    <div class="message my-message"><p>I am interested in this product.</p>
+                    </div>
+                  </ng-template>
+                </li>
+
+                
+              </ul>
+            </div>
+            <div class="chat-message clearfix">
+              <div class="input-group mb-0">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" (click)="sendNewMessage()"><i class="fa-solid fa-paper-plane"></i></span>
+                </div>
+                <input type="text" class="form-control" placeholder="Enter text here..." [(ngModel)]="message" (keyup.enter)="sendNewMessage()">
+              </div>
+            </div>
+          </div>
+          <div class="chat" *ngIf="!recipientId">
+            <div class="chat-header clearfix">
+              <div class="row">
+                <div class="col-lg-12">
+                  <h6 class="m-b-0">Select a user to start chatting</h6>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

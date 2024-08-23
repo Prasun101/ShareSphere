@@ -1,0 +1,54 @@
+
+<div class="card mt-3" >
+    <div class="title mt-3 p-3">
+        <h5 class="title mb-2" style=" color: #007bff;">Your Saved Products</h5>
+    </div>
+    <p-carousel 
+        [value]="products" 
+        [numVisible]="3" 
+        [numScroll]="3" 
+        [circular]="false" 
+        [responsiveOptions]="responsiveOptions">
+        <ng-template let-product pTemplate="item">
+            <div class="border-1 surface-border border-round m-2 p-3">
+                <div class="mb-3">
+                    <div class="relative mx-auto">
+                        <img 
+                            [routerLink]="['/products', product.id]"
+                            [src]="'http://127.0.0.1:5000/uploads/products/' + product.image_path" 
+                            [alt]="product.title" 
+                            class="w-59 border-round"
+                                />
+                        <p-tag 
+                            [value]="product.inventoryStatus" 
+                            [severity]="getSeverity(product.inventoryStatus)" 
+                            class="absolute"
+                            [ngStyle]="{ 'left.px': 5, 'top.px': 5 }" />
+                    </div>
+                    
+                </div>
+                <div class="mb-3 font-medium" [routerLink]="['/products', product.id]">
+                    {{ product.title }}
+                </div>
+                <div class="mb-3 font-small">
+                    {{ product.description }}
+                </div>
+                <div >
+                    <span class="d-flex justify-content-between align-items-center">
+                        <p-chip 
+                            [label]="product.user.username" 
+                            [image]="product.user.profile_picture? 'http://127.0.0.1:5000/uploads/profiles/' + product.user.profile_picture: 'https://th.bing.com/th/id/OIP.OYbzbbyzogwtriubL2pP0AHaHa?rs=1&pid=ImgDetMain'" 
+                            [alt]="product.user.username" 
+                            
+                            [ngStyle]="{ 'left.px': 5, 'top.px': 5 }" />
+                        <div class="fixed">
+                            <p-button icon="fas fa-heart" severity="success" [outlined]="true" [style]="{ 'border-radius': '10px' }"(onClick)="unsaveProduct(product)"></p-button>
+                            <p-button icon="fa fa-paper-plane" styleClass="ml-2"[style]="{ 'border-radius': '10px' }" (onClick)="sendProductMessage(product)"></p-button>
+                        </div>
+                    </span>
+                    
+                </div>
+            </div>
+        </ng-template>
+    </p-carousel>
+</div>

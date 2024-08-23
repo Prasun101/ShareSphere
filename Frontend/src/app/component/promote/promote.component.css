@@ -1,0 +1,34 @@
+.ads-page .header {
+    margin-bottom: 2rem;
+   
+}
+
+
+.ads-page .card {
+    border: none;
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.ads-page .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.ads-page .price {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.ads-page .list-unstyled li {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.ads-page p-button {
+    width: 100%;
+}
+.button{
+    border-radius: 10px;
+}

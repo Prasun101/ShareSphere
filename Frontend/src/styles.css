@@ -1,0 +1,23 @@
+@import url('assets/css/commom.css');
+@import "primeicons/primeicons.css";
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+/* For Seller */
+.display-seller { /* Disable horizontal scrolling */
+    
+    margin-top: 85px;
+    margin-left: 84px;
+   
+    
+    
+}
+
+/* For Regular User */
+.display-regular {
+    overflow-x: hidden; /* Disable horizontal scrolling */
+    overflow-y: auto; /* Enable vertical scrolling */
+    margin-top: 80px;
+    ; /* Adjust as needed */
+}

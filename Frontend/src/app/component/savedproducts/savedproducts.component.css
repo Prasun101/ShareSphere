@@ -1,0 +1,391 @@
+
+
+
+
+/* Header styling */
+.header {
+    font-size: 20px;
+    color: grey;
+}
+
+
+/* Modal header styling */
+.modal-header {
+    background-color: #007bff;
+    color: white;
+    justify-content: space-between;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+/* Modal footer styling */
+.modal-footer {
+    background-color: #f1f1f1;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+/* Modal content styling */
+.modal-content {
+    border-radius: 15px;
+}
+
+/* Form group label styling */
+.form-group label {
+    font-weight: bold;
+}
+
+/* Form control styling */
+.form-control,
+.form-control-file {
+    border-radius: 10px;
+}
+
+/* Primary button styling */
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+/* Primary button hover styling */
+.btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #004085;
+}
+
+/* Close button styling */
+.close {
+    color: black;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+/* Close button span styling */
+.close span {
+    font-size: 1.5rem;
+    color: white;
+}
+
+
+
+/* Close button focus styling */
+.close:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+/* Image box styling */
+.image-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border: 2px dashed #007bff;
+    border-radius: 10px;
+    height: 150px;
+    width: 100%; /* Ensures the preview box fits within the modal */
+    text-align: center;
+    color: #007bff;
+    position: relative;
+}
+
+/* Image styling */
+.image-box img {
+    border-radius: 10px;
+    max-width: 100%; /* Ensures the image does not exceed the box width */
+    max-height: 100%; /* Ensures the image does not exceed the box height */
+    object-fit: cover;
+}
+
+/* Avatar styling */
+.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #007bff;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+}
+
+
+/* Card title styling */
+.card-title {
+    margin-bottom: 0;
+}
+
+/* Text-muted styling */
+.text-muted {
+    font-size: 0.875rem;
+}
+
+/* Card text styling */
+.card-text {
+    margin-top: 1rem;
+}
+
+/* Button link styling */
+.btn-link {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.btn-link:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+/* Button outline-secondary styling */
+.btn-outline-secondary {
+    color: #007bff;
+    border-color: #007bff;
+}
+
+.btn-outline-secondary:hover {
+    color: white;
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.w-59 {
+    width:420px; 
+    height: 350px;
+}
+
+.border-round {
+    border-radius: 10px; /* Adjust this value if needed */
+}
+.heart{
+    margin-right: 30px;
+  }
+
+.relative {
+    position: relative;
+}
+
+.absolute {
+    position: absolute;
+}
+
+.mx-auto {
+    margin-left: auto;
+    margin-right: auto;
+}
+.d-flex {
+    display: flex;
+}
+
+.justify-content-between {
+    justify-content: space-between;
+}
+
+.align-items-center {
+    align-items: center;
+}
+
+.fixed {
+    display: flex;
+    gap: 10px; /* Adjust the gap between buttons as needed */
+}
+
+
+/* Hide the file input */
+.d-none {
+    display: none;
+}
+
+/* Style the image preview box */
+.image-preview-box {
+    width: 250px; /* Set a consistent width */
+    height: 200px; /* Set a consistent height */
+    border: 2px  #ccc; /* Dashed border for the preview box */
+    border-radius: 5px; /* Optional: rounded corners */
+    display: flex;
+    
+    align-items: center;
+    justify-content: center;
+    background-color: #f8f9fa; /* Light background color */
+    margin: 0 auto; /* Center the preview box */
+    cursor: pointer; /* Change cursor to pointer to indicate it's clickable */
+    transition: border-color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.image-preview-box:hover {
+    border-color: #007bff; /* Change border color on hover */
+}
+
+/* Style the placeholder icon */
+.placeholder-icon {
+    font-size: 2.5rem; /* Size of the icon */
+    color: #ccc; /* Color of the icon */
+}
+
+/* Style the placeholder text */
+.placeholder-text {
+    margin-top: 8px;
+    font-size: 0.875rem;
+    color: #888;
+}
+
+/* Style the previewed image */
+.img-preview {
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    object-fit: cover; /* Ensures the image covers the area without distorting */
+    border-radius: 5px; /* Optional: rounded corners */
+}
+/* Ensure consistent left alignment */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+/* Make the form controls consistent */
+.form-control {
+    width: 100%;
+    margin-top: 0.5rem;
+}
+
+/* Style for the description field to span full width */
+.full-width {
+    width: calc(100% + 30px); /* Full width considering padding/margin adjustments */
+}
+
+/* Style for the image preview box */
+.image-preview-box {
+    width: 300px;
+    height:200px;
+    border: 2px dashed #ccc;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f8f9fa;
+    margin: 0 auto;
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+}
+
+.image-preview-box:hover {
+    border-color: #007bff;
+}
+
+/* Style the placeholder icon */
+.placeholder-icon {
+    font-size: 2.5rem;
+    color: #ccc;
+}
+
+
+.placeholder-text {
+    margin-top: 8px;
+    font-size: 0.875rem;
+    color: #888;
+}
+
+
+.img-preview {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.form-control {
+    width: 100%; 
+    margin-top: 0.5rem;
+}
+
+
+.description-input {
+    width: calc(100% - 20px); 
+}
+
+
+.title{
+    margin-left: 5px;
+}
+.review-card {
+    text-align: center;
+    border-radius: 10px;
+}
+
+/* Styling for review text */
+.review-text {
+    font-size: 1.2rem;
+    color: #333;
+    font-style: italic;
+}
+
+/* Styling for author name */
+.review-author {
+    font-size: 1rem;
+    color: #777;
+}
+.wrapper>* {
+     flex: 0 0 auto;
+ }
+
+ a {
+     text-decoration: none;
+     background-color: transparent;
+ }
+
+ .py-8 {
+     padding-top: 3.5rem !important;
+     padding-bottom: 3.5rem !important;
+ }
+
+ .footer-link-01 li+li {
+     padding-top: 0.8rem;
+ }
+
+ .footer-title-01 {
+     font-size: 16px;
+     margin: 0 0 20px;
+     font-weight: 600;
+ }
+
+ .footer-title-01 {
+     font-size: 16px;
+     margin: 0 0 20px;
+     font-weight: 600
+ }
+
+ .footer-link-01 li+li {
+     padding-top: .8rem
+ }
+
+ @media (max-width: 991.98px) {
+     .footer-link-01 li+li {
+         padding-top: .6rem
+     }
+ }
+
+ .footer-link-01 a {
+     position: relative;
+     display: inline-block;
+     vertical-align: top
+ }
+
+ .footer-link-01 a:after {
+     content: "";
+     position: absolute;
+     bottom: 0;
+     left: auto;
+     right: 0;
+     width: 0;
+     height: 1px;
+     transition: ease all .35s;
+     background: currentColor
+ }
+
+ .footer-link-01 a:hover:after {
+     left: 0;
+     right: auto;
+     width: 100%
+ }

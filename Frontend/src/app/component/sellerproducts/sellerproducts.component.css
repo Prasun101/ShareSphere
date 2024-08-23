@@ -1,0 +1,49 @@
+.block{
+    width:200px;
+    height:200px;
+    border-radius:10px;
+}
+.card-grid{
+    padding:10px;
+    margin-top: 10px;
+}
+.absolute{
+    
+    position:absolute;
+    
+
+}
+
+.product {
+    display: flex; /* Flexbox layout */
+    align-items: center; /* Vertically center the items */
+    justify-content: space-between; /* Ensure space between image and details */
+    padding: 2rem; /* Optional padding for spacing */
+    gap: 1rem; /* Add some space between the image and details */
+    border: 1px solid #ccc; /* Optional border */
+    border-radius: 8px; /* Optional border radius */
+    background-color: #fff; /* Background color */
+}
+
+/* Style for the image container */
+.image-container {
+    flex: 0 0 auto; /* Ensure the image container doesn’t grow or shrink */
+    max-width: 100px; /* Optional: Set a max width for the image */
+}
+
+/* Ensure the image is responsive */
+.title-container{
+    margin-right: 30px;
+    margin-bottom: 10px;
+}
+
+/* Style for the product details */
+.product-details {
+    flex: 1; /* Allow the details to take up remaining space */
+    position: relative; /* Enable positioning within the container */
+    display: flex;
+    flex-direction: column; /* Stack details vertically */
+    justify-content: flex-end; /* Align content to the bottom */
+    text-align: right; /* Align text to the right */
+    height: 100%; /* Ensure it takes the full height of the product div */
+}

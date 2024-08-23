@@ -1,0 +1,33 @@
+.container-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+.tbl-cart th, .tbl-cart td {
+    text-align: center;
+}
+
+/* Style for the plus and minus buttons */
+.input-group .btn-outline-secondary {
+    border: none;
+    background-color: #fff;
+    color: #0675e4;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+
+
+.input-group .btn-outline-secondary:focus, .input-group .btn-outline-secondary:active {
+    box-shadow: none;
+}
+
+.input-group .btn-outline-secondary .fa {
+    font-size: 14px;
+}
+
+
+
+
+
+

@@ -1,0 +1,12 @@
+
+    <div class="container-xl px-4 mt-4">
+        <!-- Account page navigation-->
+        <nav class="nav nav-borders">
+          <a class="nav-link" routerLink="profile" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Profile</a>
+          <a class="nav-link" routerLink="billing" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Billing</a>
+          <a class="nav-link" routerLink="security" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Security</a>
+          <a class="nav-link" routerLink="notifications" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Notifications</a>
+        </nav>
+        <hr class="mt-0 mb-4">
+        <router-outlet></router-outlet>
+    </div>

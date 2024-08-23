@@ -1,0 +1,92 @@
+[
+    {
+        "title": " Old Radio",
+        "description": "Used Radio",
+        "price": 34.0,
+        "category": "miscellaneous",
+        "user_id": "667563e8fdaea40568c0d26b",
+        "image_path": "old-radio-set-igor-kislev.jpg",
+        "created_at": "2024-07-24T18:21:55.113000"
+    },
+    {
+        "title": "TV",
+        "description": "new TV",
+        "price": 0.0,
+        "category": "electronics",
+        "user_id": "667563e8fdaea40568c0d26b",
+        "image_path": "OIP.jpg",
+        "created_at": "2024-08-08T18:41:48.578000"
+    },
+    {
+        "title": "Male jeans",
+        "description": "New jeans Out of my size . Large",
+        "price": 20.0,
+        "category": "clothing",
+        "user_id": "667563e8fdaea40568c0d26b",
+        "image_path": "OIP_1.jpg",
+        "created_at": "2024-08-08T18:42:18.275000"
+    },
+    {
+        "title": "Camera",
+        "description": "Used Camera but looks new.",
+        "price": 0.0,
+        "category": "electronics",
+        "user_id": "667563e8fdaea40568c0d26b",
+        "image_path": "U-NK-D3200-8327488-1855VR2-21415626-02_1.jpeg",
+        "created_at": "2024-08-10T11:57:38.557000"
+    },
+    {
+        "title": "PS5",
+        "description": "Used but new.",
+        "price": 0.0,
+        "category": "electronics",
+        "user_id": "667563e8fdaea40568c0d26b",
+        "image_path": "sony-ps5-5.jpeg",
+        "created_at": "2024-08-11T00:41:54.738000"
+    },
+    {
+        "title": "Radio ",
+        "description": "Old radio  no longer needed.",
+        "price": 0.0,
+        "category": "electronics",
+        "user_id": "667563e8fdaea40568c0d26b",
+        "image_path": "88731_1000x1000.jpg",
+        "created_at": "2024-08-11T00:42:21.122000"
+    },
+    {
+        "title": "Old Radio",
+        "description": "Antic radio for sell.",
+        "price": 55.0,
+        "category": "house_appliances",
+        "user_id": "66b3f75b87712acf3f479a74",
+        "image_path": "88731_1000x1000.jpg",
+        "created_at": "2024-08-11T14:28:00.732000"
+    },
+    {
+        "title": "Mac Book pro",
+        "description": "Latest macbook pro",
+        "price": 999.0,
+        "category": "electronics",
+        "user_id": "66b3f75b87712acf3f479a74",
+        "image_path": "pic2.jpg",
+        "created_at": "2024-08-11T15:25:16.912000"
+    },
+    {
+        "title": "Mac Book pro",
+        "description": "Used Mac book",
+        "price": 999.0,
+        "category": "house_appliances",
+        "user_id": "66b3f75b87712acf3f479a74",
+        "image_path": "pic4.jpg",
+        "created_at": "2024-08-11T18:11:03.275000"
+    },
+    {
+        "title": "Mobile",
+        "description": "Used Phone. but new",
+        "price": 0.0,
+        "category": "electronics",
+        "user_id": "66b9eb674fc7b36edca75519",
+        "image_path": "6S7bFygG76tHHv4XHcUg7E.jpg",
+        "created_at": "2024-08-12T11:01:42.387000"
+    }
+]

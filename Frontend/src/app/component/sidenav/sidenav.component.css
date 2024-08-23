@@ -1,0 +1,135 @@
+body{
+    position:relative;
+    font-size:'Roboto', sans-serif;
+    
+}
+.sidenav{
+    background-color: black;
+    transition: all .5s ease;
+    
+    position: fixed;
+    z-index: 1000;
+    
+   
+    left:0;
+    width:5rem;
+    height:100vh;
+    box-shadow:0.063rem, 0 1.25rem 0 #8690a3;
+}
+
+
+
+
+.logo-container{
+        display:flex;
+        align-items:center ;
+        margin-bottom: 50px;
+        padding: 0.938rem 0.938rem 0 0.938rem;
+        width: 100%;
+
+
+        
+    
+}
+.logo{
+    background:rgb(98, 24, 235);
+    text-align: center;
+    min-width: 3rem;
+    border-radius: 0.313rem;
+    padding:0.313rem;
+    font-size: 24px;
+    font-weight:900;
+    cursor:pointer;
+    border:none;
+
+
+
+
+}
+.logo-text{
+    margin-left:1.5rem;
+    font-size: 24px;
+    font-weight: 700;
+    color:#fff;
+
+
+}
+.btn-close{
+    color:#fff;
+    margin-left: auto;
+    cursor:pointer;
+    width:2rem;
+    height:2rem;
+    transform:translate(10);
+    border-radius: 50%;
+    background:transparent;
+    border:none;
+    
+
+
+}
+.fa{
+    color:#fff;
+    font-size: 30px;
+    border:none;
+
+
+}
+.sidenav-collapsed{
+    width:16.5625rem;
+
+
+}
+.sidenav-nav{
+    list-style: none;
+    padding:0.938rem;
+    margin:1rem;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    height:calc(100% - 3.65rem);
+    
+}
+
+.sidenav-nav-link{
+    display:flex;
+    align-items: center;
+    margin-bottom: 50px;
+    height:3rem;
+    color:rgb(98, 24, 235);
+    text-decoration:none;
+    border-radius: 0.625rem;
+    transition: all .3s ease;
+
+
+}
+
+.sidenav-nav-icon{
+    font-size: 22px;
+    width:2rem;
+    align-items: center;
+    min-width: 2rem;
+    margin:0 0.5rem;
+    text-align: center;
+}
+
+.sidenav-nav-text{
+    margin-left: 1.5rem;
+    padding-right: 14px;
+}
+.sidenav-nav-item:hover{
+
+    .sidenav-nav-link{
+        background-color: rgb(98, 24, 235);
+        color:#FFF;
+    }
+}
+.active{
+    background-color:#fff;
+
+    .sidenav-nav-icon,
+    .sidenav-nav-text{
+        color:black;
+
+    }
+}

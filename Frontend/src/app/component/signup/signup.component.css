@@ -1,0 +1,10 @@
+img{
+    width: 40px;
+    height:40px;
+    object-fit: cover;
+    border-radius: 50%;
+    position:relative;
+}
+.panel{
+    margin-top: 60px;
+}

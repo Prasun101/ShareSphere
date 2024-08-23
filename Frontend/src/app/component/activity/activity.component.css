@@ -1,0 +1,46 @@
+.notification-item {
+    border: 1px solid #e3e6f0;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    background-color: #ffffff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+  
+  .notification-image {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    margin-right: 1rem;
+  }
+  
+  .notification-content {
+    flex-grow: 1;
+  }
+  
+  .notification-timestamp {
+    font-size: 0.875rem;
+    color: #6c757d;
+  }
+  
+  .text-primary {
+    color: #007bff !important;
+  }
+  
+  .card.mt-3.notification-item {
+    margin-bottom: 15px;
+  }
+  
+  .notification-item:hover {
+    background-color: #f8f9fc;
+  }
+  
+  .list-group-item {
+    border: none;
+    padding: 0;
+  }
+  
+  .list-group-item .card {
+    margin: 0;
+    border-radius: 0.5rem;
+  }
+  

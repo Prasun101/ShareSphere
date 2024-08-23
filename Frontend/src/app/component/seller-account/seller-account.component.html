@@ -1,0 +1,97 @@
+<div class="container mt-5">
+    <!-- Profile Header -->
+    <div class="profile-header text-center mb-4">
+        <h2 class="mb-3" style="color: #007bff; font-weight: bold;">Seller Profile Settings</h2>
+        <p class="description" style="color: #6c757d; font-size: 1.2rem;">
+            Manage your account information, update your profile, and configure your notification preferences.
+        </p>
+    </div>
+
+    <div class="row">
+        <!-- Profile Information Section -->
+        <div class="col-md-6 mb-4">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title" style="color: #007bff;">Profile Information</h5>
+                    <form>
+                        <div class="mb-3">
+                            <label for="username" class="form-label">Username</label>
+                            <input type="text" class="form-control" id="username" placeholder="Enter your username">
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email Address</label>
+                            <input type="email" class="form-control" id="email" placeholder="Enter your email address">
+                        </div>
+                        <div class="mb-3">
+                            <label for="profilePicture" class="form-label">Profile Picture</label>
+                            <input type="file" class="form-control" id="profilePicture">
+                        </div>
+                        <div class="text-center">
+                            <button type="button" pButton label="Save Changes" class="p-button-raised p-button-rounded p-button-primary"></button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Account Details Section -->
+        <div class="col-md-6 mb-4">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title" style="color: #007bff;">Account Details</h5>
+                    <form>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="password" placeholder="Enter your password">
+                        </div>
+                        <div class="mb-3">
+                            <label for="confirmPassword" class="form-label">Confirm Password</label>
+                            <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm your password">
+                        </div>
+                        <div class="mb-3">
+                            <label for="businessName" class="form-label">Business Name</label>
+                            <input type="text" class="form-control" id="businessName" placeholder="Enter your business name">
+                        </div>
+                        <div class="text-center">
+                            <button type="button" pButton label="Update Account" class="p-button-raised p-button-rounded p-button-primary"></button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <!-- Notification Preferences Section -->
+        <div class="col-12">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title" style="color: #007bff;">Notification Preferences</h5>
+                    <form>
+                        <div class="form-check mb-3">
+                            <input class="form-check-input" type="checkbox" id="emailNotifications" checked>
+                            <label class="form-check-label" for="emailNotifications">
+                                Receive email notifications for new orders
+                            </label>
+                        </div>
+                        <div class="form-check mb-3">
+                            <input class="form-check-input" type="checkbox" id="smsNotifications">
+                            <label class="form-check-label" for="smsNotifications">
+                                Receive SMS notifications for new orders
+                            </label>
+                        </div>
+                        <div class="form-check mb-3">
+                            <input class="form-check-input" type="checkbox" id="promotionalNotifications" checked>
+                            <label class="form-check-label" for="promotionalNotifications">
+                                Receive promotional emails and updates
+                            </label>
+                        </div>
+                        <div class="text-center">
+                            <button type="button" pButton label="Save Preferences" class="p-button-raised p-button-rounded p-button-primary"></button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

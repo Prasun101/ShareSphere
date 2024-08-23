@@ -1,0 +1,344 @@
+
+<div class="makeproduct">
+    <div class="d-flex align-items-center justify-content-between mt-1 p-3" style="background-color:  #e2e1de; border-radius: 10px; border: 1px solid #3a3423;">
+        <div>
+            <h5 class="title mb-2" style="color: #007bff;">Want to share your unwanted items? 📦</h5>
+            <p class="description" style="color: #6c757d;">Turn your unused items into something valuable for someone else! ✨</p>
+        </div>
+        <p-button (onClick)="showDialog()" 
+            label="Create Product"
+            icon="pi pi-plus"
+            styleClass="p-button-raised p-button-rounded "
+            [style]="{ 'border-radius': '10px', 'padding': '0.75rem 1.5rem', 'white-space': 'nowrap'}"></p-button>
+    </div>
+    
+    <div 
+  class="d-flex align-items-center justify-content-between mt-2 p-3" 
+  style="background-color: #e2e1de; border-radius: 10px; border: 1px solid #3a3423;" 
+  *ngIf="!isSeller">
+    <div>
+        <h5 class="title mb-2" style="color:  #007bff;">
+            Create seller account and start your own business! 🛒
+        </h5>
+        <p class="description" style="color: #856404;">
+            Upgrade to a seller account and unlock exclusive features like priority listings, access to a larger audience, and advanced selling tools. 🚀
+        </p>
+        <ul class="benefits" style="list-style-type: none; padding-left: 0; color: #856404;">
+            <li>🔹 Access to seller dashboard which gives automated numerical analysis about your business.</li>
+            <li>🔹 Priority Listings: Stand out in search results.</li>
+            <li>🔹 Access to a larger audience.</li>
+            <li>🔹 Advanced selling tools to manage your sales.</li>
+        </ul>
+    </div>
+    <p-button 
+      label="Join Now"
+      icon="pi pi-user-plus"
+      [routerLink]="['/signup']"
+      styleClass="p-button-raised p-button-rounded"
+      [style]="{ 'border-radius': '10px', 'padding': '0.75rem 1.5rem', 'white-space': 'nowrap' }">
+    </p-button>
+</div>
+
+    <p-dialog 
+    header="Create Product" 
+    [(visible)]="visible" 
+    [modal]="true" 
+    [style]="{ width: '55rem', borderRadius: '10px', border: '1px solid #ffeeba' }"
+    [ngStyle]="{'background-color': '#fff3cd'}">
+
+
+    <ng-template pTemplate="header">
+        <div class="d-flex align-items-center gap-2">
+            <p-avatar 
+                [style]="{ 'margin-top': '0px' }"
+                [image]="loggedInUser?.profile_picture || 'https://primefaces.org/cdn/primeng/images/demo/avatar/amyelsner.png'"
+                shape="circle">
+            </p-avatar>
+            <span class="font-bold white-space-nowrap">
+                {{ loggedInUser?.username || 'Unknown User' }}
+            </span>
+        </div>
+    </ng-template>
+
+
+    <span class="p-text-primary block">Fill up the details</span>
+
+    <!-- Grid for Title, Category, and Image -->
+    <form [formGroup]="productForm">
+        <div class="row">
+            <div class="col-md-6">
+                <!-- Product Title -->
+                <div class="form-group mb-3">
+                    <label for="title" class="font-semibold">Title</label>
+                    <input pInputText id="title" class="form-control" formControlName="title" autocomplete="off" required/>
+                </div>
+                
+                <!-- Product Category -->
+                <div class="form-group mb-3">
+                    <label for="category" class="font-semibold">Category</label>
+                    <p-dropdown 
+                        [options]="categories" 
+                        formControlName="category"
+                        placeholder="Select a Category"
+                        id="category"
+                        class="form-control catagory-input">
+                    </p-dropdown>
+                </div>
+            </div>
+            
+            
+            <div class="col-md-6 text-center">
+                <div class="mb-3">
+                    <label for="image" class="font-semibold">Product Image</label>
+            
+                    <!-- Clickable Image Preview Box -->
+                    <div class="image-preview-box" (click)="fileInput.click()">
+                        <img *ngIf="selectedImage; else placeholder" [src]="selectedImage" alt="Image Preview" class="img-fluid img-preview" />
+                        <ng-template #placeholder>
+                            <i class="fa fa-image placeholder-icon"></i>
+                            <p class="placeholder-text">Click to select an image</p>
+                        </ng-template>
+                    </div>
+            
+                    <!-- Hidden file input -->
+                    <input type="file" id="image" (change)="onFileChange($event)" class="d-none" #fileInput />
+                </div>
+            </div>
+        </div>
+        
+        <!-- Product Description -->
+        <div class="form-group mb-4">
+            <label for="description" class="font-semibold">Description</label>
+            <textarea 
+                pInputTextarea 
+                id="description" 
+                rows="5" 
+                formControlName="description"
+                class="form-control description-input" 
+                placeholder="Enter product description"></textarea>
+        </div>
+    </form>
+    <ng-template pTemplate="footer">
+        <p-button 
+            label="Cancel" 
+            [text]="true" 
+            severity="danger" 
+            (onClick)="visible = false" />
+        <p-button 
+            label="Publish" 
+            [outlined]="true" 
+            severity="success" 
+            [disabled]="productForm.invalid"
+            (onClick)="addNewProduct()" />
+    </ng-template>
+</p-dialog>
+</div>
+<div class="card mt-3"style="background-color: #e2e1de; border-radius: 10px; border: 1px solid #3a3423;"  >
+    <div class="title mt-3 p-3">
+        <h5 class="title mb-2" style=" color: #007bff;">Latest Free Products</h5>
+    </div>
+    <p-carousel 
+        [value]="products" 
+        [numVisible]="3" 
+        [numScroll]="3" 
+        [circular]="false" 
+        [responsiveOptions]="responsiveOptions">
+        <ng-template let-product pTemplate="item">
+            <div class="border-1 surface-border border-round m-2 p-3">
+                <div class="mb-3">
+                    <div class="relative mx-auto">
+                        <img 
+                            [src]="'http://127.0.0.1:5000/uploads/products/' + product.image_path" 
+                            [alt]="product.title" 
+                            class="w-59 border-round"
+                                />
+                        <p-tag 
+                            [value]="product.inventoryStatus" 
+                            [severity]="getSeverity(product.inventoryStatus)" 
+                            class="absolute"
+                            [ngStyle]="{ 'left.px': 5, 'top.px': 5 }" />
+                    </div>
+                    
+                </div>
+                <div class="mb-3 font-medium">
+                    {{ product.title }}
+                </div>
+                <div class="mb-3 font-small">
+                    {{ product.description }}
+                </div>
+                <div >
+                    <span class="d-flex justify-content-between align-items-center">
+                        <p-chip 
+                            [label]="product.user.username" 
+                            [image]="'http://127.0.0.1:5000/uploads/profiles/' + product.user.profile_picture" 
+                            [alt]="product.user.username" 
+                            
+                            [ngStyle]="{ 'left.px': 5, 'top.px': 5 }" />
+                        <div class="fixed">
+                            <p-button icon="fas fa-heart" severity="success" [outlined]="true" [style]="{ 'border-radius': '10px' }"(onClick)="saveProduct(product)"></p-button>
+                            <p-button icon="fa fa-paper-plane" styleClass="ml-2"[style]="{ 'border-radius': '10px' }" (onClick)="sendProductMessage(product)"></p-button>
+                        </div>
+                    </span>
+                    
+                </div>
+            </div>
+        </ng-template>
+    </p-carousel>
+</div>
+<div class="card m-2" style="background-color: #e2e1de; border-radius: 10px; border: 1px solid #3a3423;"  >
+    <div class="title mt-3 p-3">
+        <h5 class="title mb-2" style=" color: #007bff;">Latest Products For Sale</h5>
+    </div>
+    
+    <p-carousel 
+        [value]="sellProducts" 
+        [numVisible]="3" 
+        [numScroll]="3" 
+        [circular]="false" 
+        [responsiveOptions]="responsiveOptions">
+        <ng-template let-item pTemplate="item">
+            <div class="border-1 surface-border border-round m-2 p-3">
+                <div class="mb-3">
+                    <div class="relative mx-auto">
+                        <img 
+                            [src]="item.image_path? 'http://127.0.0.1:5000/uploads/products/' + item.image_path: 'https://th.bing.com/th/id/OIP.9_uAwk7QsdVi9f37dfJ66AHaHa?pid=ImgDet&w=184&h=184&c=7&dpr=1.3'" 
+                            [alt]="item.title" 
+                            class="w-59 border-round"
+                                />
+                        <p-tag 
+                            [value]="item.inventoryStatus" 
+                            [severity]="getSeverity(item.inventoryStatus)" 
+                            class="absolute"
+                            [ngStyle]="{ 'left.px': 5, 'top.px': 5 }" />
+                    </div>
+                    
+                </div>
+                <div class="mb-3 font-medium">
+                    {{ item.title }}
+                </div>
+                <div class="mb-3 font-small">
+                    {{ item.description }}
+                </div>
+                <div class="mb-3 font-medium">
+                    £{{ item.price }}
+                </div>
+                <div >
+                    <span class="d-flex justify-content-between align-items-center">
+                        <p-chip 
+                            [label]="item.user.username" 
+                            [image]="item.user.profile_picture?  item.user.profile_picture: 'https://th.bing.com/th/id/OIP.OYbzbbyzogwtriubL2pP0AHaHa?rs=1&pid=ImgDetMain'" 
+                            [alt]="item.user.username" 
+                            
+                            [ngStyle]="{ 'left.px': 5, 'top.px': 5 }" />
+                        <div class="fixed">
+                            <p-button icon="fas fa-heart" severity="success" [outlined]="true" [style]="{ 'border-radius': '10px' }"(onClick)="saveProduct(item)"></p-button>
+                            <p-button icon="fa fa-paper-plane" styleClass="ml-2"[style]="{ 'border-radius': '10px' }" (onClick)="sendProductMessage(item)" [disabled]="item.inventoryStatus === 'out of stock'"></p-button>
+                        </div>
+                    </span>
+                    
+                </div>
+            </div>
+        </ng-template>
+    </p-carousel>
+</div>
+<div class="card m-2" style="background-color: #e2e1de; border-radius: 10px; border: 1px solid #3a3423;" >
+    <div class="title mt-3 p-3">
+        <h5 class="title mb-2" style="text-align: center; color: #007bff;">Our User Thoughts.</h5>
+    </div>
+    
+    <p-carousel 
+        [value]="userReviews" 
+        [numVisible]="1" 
+        [numScroll]="1" 
+        [circular]="true" 
+        [autoplayInterval]="3000" 
+        [style]="{ 'max-width': '400px', 'margin': '0 auto' }">
+        
+        <ng-template let-review pTemplate="item">
+            <div class="review-card p-3">
+                <p class="review-text">"{{ review.text }}"</p>
+                <p class="review-author font-bold text-secondary mt-2">- {{ review.author }}</p>
+            </div>
+        </ng-template>
+    </p-carousel>
+</div>
+<footer class="bg-dark footer">
+    <div class="footer-top py-8">
+        <div class="container">
+            <div class="row gy-5">
+                <div class="col-lg-8 pe-xxl-10">
+                    <div class="row gy-5">
+                        <div class="col-6 col-lg-4">
+                            <h5 class="text-white footer-title-01">A propos</h5>
+                            <ul class="list-unstyled footer-link-01 m-0">
+                                <li><a class="text-white text-opacity-75" href="#">About Us</a></li>
+                                <li><a class="text-white text-opacity-75" href="#">Blog</a></li>
+                                <li><a class="text-white text-opacity-75" href="#">Our ingredients</a></li>
+                                <li><a class="text-white text-opacity-75" href="#">Our resellers</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-6 col-lg-4">
+                            <h5 class="text-white footer-title-01">About</h5>
+                            <ul class="list-unstyled footer-link-01 m-0">
+                                <li><a class="text-white text-opacity-75" href="#">Customer Service</a></li>
+                                <li><a class="text-white text-opacity-75" href="#">Privacy Policy</a></li>
+                                <li><a class="text-white text-opacity-75" href="#">Cookie Policy</a></li>
+                                <li><a class="text-white text-opacity-75" href="#">Terms &amp; Conditions</a></li>
+                                <li><a class="text-white text-opacity-75" href="#">Terms of Use</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-6 col-lg-4">
+                            <h5 class="text-white footer-title-01">Need Help?</h5>
+                            <ul class="list-unstyled footer-link-01 m-0">
+                                <li><a class="text-white text-opacity-75" href="#">Contact Us</a></li>
+                                <li><a class="text-white text-opacity-75" href="#">FAQs</a></li>
+                                <li><a class="text-white text-opacity-75" href="#">Offers &amp; Kits</a></li>
+                                <li><a class="text-white text-opacity-75" href="#">Get the app</a></li>
+                                
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <h5 class="text-white footer-title-01 fs-5">Subscribe to our newsletter and get updated.</h5>
+                    <div>
+                        <form class="d-flex mb-2 p-1 bg-white input-group">
+                            <input type="email" class="form-control border-0 rounded-start" placeholder="Your Email" required>
+                            <button class="btn btn-secondary" type="submit">Subscribe</button>
+                        </form>
+                        
+                        
+                        
+                        <p class="fs-sm text-white text-opacity-75">I agree to receive Absolution newsletters</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom small py-3 border-top border-white border-opacity-10">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start py-1">
+                    <p class="m-0 text-white text-opacity-75">© 2024 copyright by <a class="text-reset" href="#">ShareSphere</a></p>
+                </div>
+                <div class="col-md-6 text-center text-md-end py-1">
+                    <ul class="nav justify-content-center justify-content-md-end list-unstyled footer-link-01 m-0">
+                        <li class="p-0 mx-3 ms-md-0 me-md-3"><a href="#" class="text-white text-opacity-75">Privace &amp; Policy</a></li>
+                        <li class="p-0 mx-3 ms-md-0 me-md-3"><a href="#" class="text-white text-opacity-75">Faq's</a></li>
+                        <li class="p-0 mx-3 ms-md-0 me-md-3"><a href="#" class="text-white text-opacity-75">Get a Quote</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+    
+
+
+
+
+

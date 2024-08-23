@@ -1,0 +1,44 @@
+
+<app-root>
+    [collapsed]="isSideNavCollapsed"
+    [screenWidth]="screenWidth"
+</app-root>
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <div>
+      <button class="btn btn-outline-secondary mr-2">For you</button>
+      <button class="btn btn-outline-secondary mr-2">Recent</button>
+      <button class="btn btn-outline-secondary">Nearby</button>
+    </div>
+    <button class="btn btn-success">+ Post</button>
+  </div>
+  
+  <div class="card mb-4">
+    <div class="card-body">
+      <textarea class="form-control" rows="3" placeholder="What's on your mind?"></textarea>
+      <button class="btn btn-primary mt-2 float-right">Post</button>
+    </div>
+  </div>
+  
+  <div *ngFor="let post of posts" class="card mb-3">
+    <div class="card-body">
+      <div class="d-flex align-items-start">
+        <div class="avatar mr-3">{{ post.user.charAt(0) }}</div>
+        <div>
+          <h5 class="card-title mb-1">{{ post.user }}</h5>
+          <p class="text-muted mb-0">{{ post.location }} • {{ post.time }}</p>
+        </div>
+        <div class="ml-auto">
+          <button class="btn btn-link"><i class="fa fa-ellipsis-h"></i></button>
+          <button class="btn btn-link"><i class="fa fa-times"></i></button>
+        </div>
+      </div>
+      <p class="card-text mt-3">{{ post.content }}</p>
+      <div class="d-flex justify-content-between">
+        <button class="btn btn-outline-secondary"><i class="fa fa-heart"></i> {{ post.likes }}</button>
+        <button class="btn btn-outline-secondary"><i class="fa fa-comment"></i> {{ post.comments }}</button>
+      </div>
+    </div>
+</div>
+
+
+

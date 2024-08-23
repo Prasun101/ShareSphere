@@ -1,0 +1,304 @@
+<div class="display">
+    <div class="container-fluid">
+        <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <h2 class="main h3 m-3 text-white">Dashboard</h2>
+            <a  class="d-none m-3 d-sm-inline-block btn btn-primary shadow-sm" href="#">
+                <i class="fas fa-download fa-sm text-black-60"></i>
+                Generate Report
+
+            </a>
+        </div>
+        <div class="row">
+            <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card shadow h-100 py-2" style="border-left: 0.25rem solid #28a745;">
+                    <div class="card-body">
+                        <div class="row align-items-center">
+                            <div class="col">
+                                <div class="text-xs font-weight-bold text-uppercase mb-1" style="color: #28a745;">Monthly Gross Earning</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">£80,000</div>
+                            </div>
+                            <div class="col-auto">
+                                <i class="fas fa-pound-sign fa-2x" style="color: #28a745;"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card shadow h-100 py-2" style="border-left: 0.25rem solid rgb(78, 183, 231);">
+                    <div class="card-body">
+                        <div class="row align-items-center">
+                            <div class="col">
+                                <div class="text-xs font-weight-bold text-uppercase mb-1" style="color: rgb(78, 183, 231);">Monthly Net Earning</div>
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col-auto">
+                                        <div class="h5 mb-0 font-weight-bold text-gray-800">£36,000</div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="progress progress-sm mr-2">
+                                            <div class="div progress-bar bg-info" role="progressbar" style="color: rgb(78, 183, 231); width:80%"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-auto">
+                                <i class="fas fa-pound-sign fa-2x" style="color: rgb(78, 183, 231);"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><div class="col-xl-3 col-md-6 mb-4">
+                <div class="card shadow h-100 py-2" style="border-left: 0.25rem solid #f13219;">
+                    <div class="card-body">
+                        <div class="row align-items-center">
+                            <div class="col">
+                                <div class="text-xs font-weight-bold text-uppercase mb-1" style="color:#f13219;">Daily Orders</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">25</div>
+                            </div>
+                            <div class="col-auto">
+                                <i class="fas fa-boxes-stacked fa-2x" style="color: #f13219;"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><div class="col-xl-3 col-md-6 mb-4">
+                <div class="card shadow h-100 py-2" style="border-left: 0.25rem solid #a230d6;">
+                    <div class="card-body">
+                        <div class="row align-items-center">
+                            <div class="col">
+                                <div class="text-xs font-weight-bold text-uppercase mb-1" style="color: #a230d6;">Total Order Delivered</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">15600</div>
+                            </div>
+                            <div class="col-auto">
+                                <i class="fas fa-dolly-box fa-2x" style="color: #a230d6;"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>   
+        <div class="row">
+            <div class="col-xl-8  col-lg-7">
+                <div class="card shadow mb-4">
+                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                        <h6 class=" header m-0 font-weight-bold text-primary">Earnings Overview</h6>
+                        <div class="dropdown no-arrow">
+                            <a class="dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown"data-bs-target="dropDownMenu"  arial-control="dropDownMenu"aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-ellipsis-v fa-sm fa-fw" style="color: grey;"></i>
+                                
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right" id= "dropDownMenu" aria-labelledby="dropdownMenuLink">
+                                <div class="dropdown-header">Options</div>
+                                <a href="#" class="dropdown-item">Reset Chart</a>
+                                <a href="#" class="dropdown-item">Previous Year</a>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="chart-area">
+                            <canvas id="myAreaChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-4 col-lg-5">
+                <div class="card shadow mb-4">
+                    <div class="card-header">
+                        <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                            <h6 class=" header m-0 font-weight-bold text-primary">Revenue Sources</h6>
+                            <div class="dropdown no-arrow">
+                                <a class="dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown"data-bs-target="dropDownMenu"  arial-control="dropDownMenu"aria-haspopup="true" aria-expanded="false">
+                                    <i class="fas fa-ellipsis-v fa-sm fa-fw" style="color: grey;"></i>
+                                    
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right" id= "dropDownMenu" aria-labelledby="dropdownMenuLink">
+                                    <div class="dropdown-header">Options</div>
+                                    <a href="#" class="dropdown-item">Reset Chart</a>
+                                    <a href="#" class="dropdown-item">Previous Year</a>
+                                </div>
+                                
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="pie-chart pt-4 pb-2">
+                                <canvas id="myPieChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+
+            
+            
+                    
+            
+        </div>   
+        <div class="row">
+            <div class=" col-xl-6 col-lg-6 mb-4">
+                <div class="card shadow mb-4">
+                    <div class="card-header py-3">
+                        <h6 class=" header m-0 font-weight-bold text-primary">Daily Updates</h6>
+
+                    </div>
+                    <div class="card-body">
+                        <h4 class=" topic small font-weight-bold">Daily sales target<span class="float-end">20%</span></h4>
+                        <div class="progress mb-4">
+                            <div class="progrss-bar " role="progressbar" style="width: 20%; background-color:rgb(242, 28, 28);" aria-valuemax="100"  aria-valuemin="0">
+
+                            </div>
+                        </div>
+
+                        <h4 class=" topic small font-weight-bold">Daily order target<span class="float-end">40%</span></h4>
+                        <div class="progress mb-4">
+                            <div class="progrss-bar " role="progressbar" style="width: 40%; background-color:rgb(242, 242, 28);" aria-valuemax="100"  aria-valuemin="0">
+
+                            </div>
+                        </div>
+
+                        <h4 class=" topic small font-weight-bold">Daily Profit Growth<span class="float-end">52%</span></h4>
+                        <div class="progress mb-4">
+                            <div class="progrss-bar " role="progressbar" style="width: 52%; background-color:rgb(153, 242, 28);" aria-valuemax="100"  aria-valuemin="0">
+
+                            </div>
+                        </div>
+
+                        <h4 class=" topic small font-weight-bold">Daily Revenue Growth<span class="float-end">72%</span></h4>
+                        <div class="progress mb-4">
+                            <div class="progrss-bar " role="progressbar" style="width: 72%; background-color:rgb(10, 228, 13);" aria-valuemax="100"  aria-valuemin="0">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="col-lg-6 mb-4">
+                <div class="card shadow mb-3">
+                    <div class="card-header py-3 text-center"> <!-- Center align the header -->
+                        <h6 class="header m-0 font-weight-bold text-primary align-items-center">Add a Product</h6>
+                    </div>
+                    <div class="card-body">
+                        <p style="text-align: justify;">Adding a product to your inventory is quick and easy, ensuring your offerings are always up-to-date and attractive to customers. To begin, simply fill out the necessary details  by clickling the button below add product.</p>
+                        <div class="text-center mb-2"> <!-- Center align the button -->
+                            <button class="btn btn-primary" class="btn btn-primary" (click)="openModal()">
+                                <i class="fas fa-plus-circle mr-2"></i> Add Product <!-- Font Awesome icon and text -->
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 mb-4">
+                        <div class="card text-white shadow" style="background-color: #e64316;">
+                            <div class="card-body">
+                                Products
+                                <div>View your Products</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 mb-4">
+                        <div class="card text-white shadow" style="background-color: #30d633;">
+                            <div class="card-body">
+                                Messages
+                                <div>View your Messages</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 mb-4">
+                        <div class="card  text-white shadow" style="background-color: #a230d6;">
+                            <div class="card-body">
+                                Orders
+                                <div>View Orders</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 mb-4">
+                        <div class="card  text-white shadow" style="background-color: #e32a6b;">
+                            <div class="card-body">
+                                Recent Activities
+                                <div>View Recent Activities</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            
+            
+        </div>
+        <footer class="sticky-footer bg-transparent">
+            <div class="container my-auto">
+                <div class="copyright text-center my-auto text-white-50">
+                    <span>Copyright &copy; ShareSphere 2024</span>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+</div>
+<!-- product-modal.component.html -->
+<!-- dashboard.component.html -->
+<div *ngIf="isModalOpen" class="modal show d-block" tabindex="-1" role="dialog" aria-labelledby="productModalLabel" aria-hidden="true" style="background: rgba(0,0,0,0.5);">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="productModalLabel">Add Your Product</h5>
+                <button type="button" class="close" aria-label="Close" (click)="closeModal()">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="productForm" (ngSubmit)="addNewproduct()">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="title">Product Name</label>
+                                <input type="text" id="title" class="form-control" formControlName="title" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="category">Category</label>
+                                <select id="category" class="form-control" formControlName="category" required>
+                                    <option value="" disabled>Select a category</option>
+                                    <option value="electronics">Electronics</option>
+                                    <option value="clothing">Clothing</option>
+                                    <option value="books">Books</option>
+                                    <option value="house_appliances">House Appliances</option>
+                                    <option value="miscellaneous">Miscellaneous</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-5" style="margin-left: 60px;">
+                            <div class="form-group">
+                                <label for="images" style="margin-left: 80px;">Product Images</label>
+                                <div class="image-box" (click)="triggerFileInput()">
+                                    <img *ngIf="!selectedImage" [src]="" alt="Picture">
+                                    <img *ngIf="selectedImage" [src]="selectedImage" alt="Image Preview">
+                                </div>
+                                <input type="file" id="image" class="form-control-file" (change)="onFileChange($event)" #fileInput hidden>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Product Description</label>
+                        <textarea id="description" class="form-control" formControlName="description" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="price">Price</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">£</span>
+                            </div>
+                            <input type="number" id="price" class="form-control" formControlName="price" required>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary" [disabled]="productForm.invalid">Post</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+  <!-- Modal backdrop -->
+<div *ngIf="isModalOpen" class="modal-backdrop fade show"></div>
